@@ -1,11 +1,12 @@
-"""Crear un programa que le pida al usuario su nombre, su edad,
-y luego lo salude y asu edad le reste 5 años
--Recorda crear las dos variables {nombre} y {edad} y a cada una de ellas
-asignarle la funcion input para que el usuario pueda ingresar los datos y
-espisifcando siempre que tipo de dato va a ser cada varible (str, int, float, bool)
--Despues con un print y concatentando mensajes y variables mostrar el resultado
-final"""
+"""Pide el nombre y la edad, saluda y muestra la edad cinco anos menor."""
 
-nombre = str(input("Ingrese su nombre: "))
+# input devuelve texto; int convierte el dato de edad para poder restarlo.
+nombre = input("Ingrese su nombre: ")
 edad = int(input("Ingrese su edad: "))
-print(f"Hola {nombre}, tu edad es de {edad - 5} años.")
+
+# Las f-strings permiten insertar variables y expresiones en un mensaje.
+print(f"Hola {nombre}, si restamos 5 anos tu edad seria {edad - 5}.")
+
+# Ejemplo sin pedir datos: 30 - 5 da como resultado 25.
+edad_ejemplo = 30
+print(f"Ejemplo: {edad_ejemplo} - 5 = {edad_ejemplo - 5}")

@@ -1,8 +1,7 @@
+"""Polimorfismo: distintos objetos responden a un mismo metodo."""
 
-#Polimorfismo
 
 class Arma:
-
     def __init__(self, balas, peso):
         self.balas = balas
         self.peso = peso
@@ -10,19 +9,24 @@ class Arma:
     def disparar(self):
         print("El arma dispara")
 
+
 class Pistola(Arma):
-
     def disparar(self):
-        print("El arma dispara lento")
+        print("La pistola dispara")
 
-class Amestralladora(Arma):
 
+class Ametralladora(Arma):
     def disparar(self):
-        print("El arma dispara rapido")
+        print("La ametralladora dispara")
 
-arma = Arma(15, 7)
-arma.disparar()
-pistola = Pistola(12, 5)
-pistola.disparar()
-amestralladora = Amestralladora(50, 12)
-amestralladora.disparar()
+
+# Las tres instancias pueden tratarse de la misma manera.
+elementos = [
+    Arma(15, 7),
+    Pistola(12, 5),
+    Ametralladora(50, 12),
+]
+
+for elemento in elementos:
+    elemento.disparar()
+    print(f"Municion: {elemento.balas}; peso: {elemento.peso} kg")

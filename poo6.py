@@ -1,24 +1,31 @@
+"""Encapsulamiento: acceder a datos privados mediante metodos publicos."""
+
 
 class Curso:
+    def __init__(self, titulo, duracion):
+        self.__titulo = titulo
+        self.__duracion = duracion
 
-    __titulo = "Backend Python3"
-    __duracion = 20
+    def adquirir_curso(self):
+        print(f"Has adquirido el curso {self.__titulo}")
 
-    def __adquirir_curso(self):
-        print("Has adquirido este curso")
-
-    def get_adquirir_curso(self):
-        return self.__adquirir_curso()
-
-    def get_titulo(self):
+    def obtener_titulo(self):
         return self.__titulo
-    
-    def set_titulo(self, titulo):
+
+    def cambiar_titulo(self, titulo):
+        if not titulo.strip():
+            raise ValueError("El titulo no puede estar vacio")
         self.__titulo = titulo
 
-curso = Curso()
-curso.get_adquirir_curso()
-print(curso.get_titulo())
-curso.set_titulo("Backend PythonPRO")
-print(curso.get_titulo())
+    def obtener_duracion(self):
+        return self.__duracion
 
+
+# Los metodos publicos permiten consultar o cambiar el estado interno.
+curso = Curso("Backend Python 3", 20)
+curso.adquirir_curso()
+print(f"Titulo: {curso.obtener_titulo()}")
+print(f"Duracion: {curso.obtener_duracion()} horas")
+
+curso.cambiar_titulo("Backend Python avanzado")
+print(f"Nuevo titulo: {curso.obtener_titulo()}")

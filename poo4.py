@@ -1,6 +1,7 @@
+"""Herencia: Perro y Gato reutilizan los atributos y metodos de Animal."""
+
 
 class Animal:
-
     def __init__(self, edad, numero_patas, alimentacion):
         self.edad = edad
         self.numero_patas = numero_patas
@@ -12,33 +13,37 @@ class Animal:
     def correr(self):
         print("El animal corre")
 
+
 class Perro(Animal):
-    raza = None
-    ladrido = None
-    pelaje = None
+    def __init__(self, edad, raza, pelaje):
+        super().__init__(edad, 4, "carnivora")
+        self.raza = raza
+        self.pelaje = pelaje
 
     def ladrar(self):
         print("El perro ladra")
 
-    def morder(self):
-        print("El perro muerde")
 
 class Gato(Animal):
-    
+    def __init__(self, edad, color):
+        super().__init__(edad, 4, "carnivora")
+        self.color = color
+
     def saltar(self):
         print("El gato salta")
 
 
-perro = Perro(5, 4, "carnivoro")
-perro.raza = "Caniche"
-perro.ladrido = "Fuerte"
-perro.pelaje = "Blanco"
-print(perro.edad)
-print(perro.numero_patas)
-print(perro.alimentacion)
-print(perro.raza)
-print(perro.ladrido)
-print(perro.pelaje)
-perro.correr()
+# El perro hereda edad, patas y alimentacion de Animal.
+perro = Perro(5, "Caniche", "blanco")
+print(
+    f"Perro: {perro.raza}, {perro.edad} anos, "
+    f"{perro.numero_patas} patas, pelaje {perro.pelaje}"
+)
 perro.caminar()
 perro.ladrar()
+
+# Gato tambien hereda el comportamiento comun y agrega el suyo.
+gato = Gato(3, "gris")
+print(f"Gato: {gato.color}, alimentacion {gato.alimentacion}")
+gato.correr()
+gato.saltar()

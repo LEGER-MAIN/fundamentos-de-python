@@ -1,18 +1,22 @@
+"""Ejemplos de tuplas y conjuntos (set)."""
 
-tupla = (100, "hello", ["familia", "amigos"], {"hello": "hello"})
+# La tupla conserva el orden y puede contener valores de distintos tipos.
+tupla = (100, "hello", ["familia", "amigos"], {"hello": "hola"})
+print(f"Tupla completa: {tupla}")
+print(f"Primer elemento: {tupla[0]}")
+print(f"Ultimo elemento: {tupla[-1]}")
+print(f"Cantidad de elementos: {len(tupla)}")
 
-print(tupla)
-print(tupla[0])
-print(tupla[-1])
+# No se puede reasignar un elemento: tupla[0] = 200 daria un TypeError.
+# Para crear una version ampliada, se convierte temporalmente en lista.
+tupla_modificable = list(tupla)
+tupla_modificable.append(200)
+tupla = tuple(tupla_modificable)
+print(f"Nueva tupla: {tupla}")
 
-#tupla[0] = 200
-print(len(tupla))
-
-tupla = list(tupla)
-tupla.append(200)
-tupla = tuple(tupla)
-print(tupla)
-
+# Un set elimina duplicados y permite comparar colecciones.
 nuestro_set = {21, 24, 23, 14, 21, 21, 29}
-print(nuestro_set)
-
+otro_set = {14, 30, 31}
+print(f"Conjunto sin duplicados: {nuestro_set}")
+print(f"Elementos comunes: {nuestro_set & otro_set}")
+print(f"Elementos de ambos conjuntos: {nuestro_set | otro_set}")
